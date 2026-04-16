@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adinkra Fashion House — Elevate Your Style. Embrace Your Heritage.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500;600;700&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:      #000000;
+      --off-black:  #0C0B09;
+      --white:      #FFFFFF;
+      --cream:      #F9F6F0;
+      --gold:       #C9A84C;
+      --gold-light: #E2C97E;
+      --gold-dark:  #9C7A2A;
+      --text:       #1A1710;
+      --text-mid:   #4A4535;
+      --text-soft:  #7C7460;
+      --border:     #E0D8CC;
+      --font-d: 'Cinzel', serif;
+      --font-i: 'Cormorant Garamond', serif;
+      --font-b: 'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); background: var(--white); color: var(--text); overflow-x: hidden; }
+    img { display: block; width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── UTILITY ─── */
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 48px; }
+    .section-label {
+      font-family: var(--font-b);
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 18px;
+    }
+    .section-title {
+      font-family: var(--font-d);
+      font-size: clamp(30px, 3.8vw, 52px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: 0.03em;
+      color: var(--black);
+    }
+    .section-title em {
+      font-family: var(--font-i);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-dark);
+    }
+    .section-title.white { color: var(--white); }
+    .section-title.white em { color: var(--gold-light); }
+
+    .divider-line {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 22px 0 32px;
+    }
+    .divider-line.center { margin: 22px auto 32px; }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-block;
+      font-family: var(--font-b);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      padding: 16px 38px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.35s ease;
+    }
+    .btn-gold { background: var(--gold); color: var(--black); border-color: var(--gold); }
+    .btn-gold:hover { background: var(--gold-dark); border-color: var(--gold-dark); }
+    .btn-outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
+    .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); }
+    .btn-outline-dark { background: transparent; color: var(--black); border-color: var(--black); }
+    .btn-outline-dark:hover { background: var(--black); color: var(--gold-light); }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      transition: background 0.5s, border-color 0.5s;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled {
+      background: rgba(0,0,0,0.96);
+      border-bottom-color: rgba(201,168,76,0.15);
+      backdrop-filter: blur(20px);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1240px; margin: 0 auto; padding: 20px 48px;
+      transition: padding 0.4s;
+    }
+    .nav.scrolled .nav-inner { padding: 14px 48px; }
+
+    .nav-logo { display: flex; align-items: center; gap: 14px; }
+    .nav-logo img { width: 150px; height: 100px; object-fit: contain; }
+    .nav-logo-text {
+      font-family: var(--font-d);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      color: var(--white);
+      display: flex; flex-direction: column; line-height: 1.2;
+    }
+    .nav-logo-sub {
+      font-size: 7.5px;
+      letter-spacing: 0.38em;
+      font-weight: 400;
+      color: var(--gold);
+    }
+
+    .nav-links { list-style: none; display: flex; align-items: center; gap: 36px; }
+    .nav-links a {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(255,255,255,0.7);
+      transition: color 0.3s; position: relative;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-links .nav-cta {
+      background: var(--gold); color: var(--black);
+      padding: 10px 22px; font-weight: 600;
+    }
+    .nav-links .nav-cta:hover { background: var(--gold-light); }
+
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+    .nav-toggle span { display: block; width: 24px; height: 1px; background: var(--white); transition: all 0.3s; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background: var(--black);
+      display: grid; grid-template-columns: 1fr 1fr;
+      position: relative; overflow: hidden;
+    }
+
+    /* Adinkra symbol grid watermark */
+    .hero-symbols-bg {
+      position: absolute; inset: 0; pointer-events: none; z-index: 1;
+      background-image: url('/mnt/user-data/uploads/Hy1O_y9qtYJ.jpg');
+      background-size: 340px auto;
+      background-repeat: repeat;
+      opacity: 0.04;
+      filter: invert(1);
+    }
+
+    .hero-left {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 140px 60px 100px 72px;
+      border-right: 1px solid rgba(201,168,76,0.12);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-b); font-size: 9px; font-weight: 500;
+      letter-spacing: 0.6em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 36px;
+      display: flex; align-items: center; gap: 16px;
+      opacity: 0; animation: fadeUp 0.8s 0.3s forwards;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 32px; height: 1px; background: var(--gold);
+    }
+
+    .hero-title {
+      font-family: var(--font-d);
+      font-size: clamp(40px, 5vw, 72px);
+      font-weight: 400; line-height: 1.0;
+      color: var(--white); margin-bottom: 10px;
+      letter-spacing: 0.01em;
+      opacity: 0; animation: fadeUp 0.9s 0.5s forwards;
+    }
+    .hero-title-italic {
+      font-family: var(--font-i); font-style: italic;
+      font-size: clamp(44px, 5.5vw, 80px); font-weight: 300;
+      color: var(--gold-light); display: block; line-height: 1.1;
+      opacity: 0; animation: fadeUp 0.9s 0.7s forwards;
+    }
+
+    .hero-rule {
+      width: 48px; height: 1px; background: var(--gold);
+      margin: 28px 0; opacity: 0; animation: fadeUp 0.7s 0.9s forwards;
+    }
+
+    .hero-slogan {
+      font-family: var(--font-i); font-style: italic;
+      font-size: clamp(15px, 1.8vw, 20px);
+      color: rgba(201,168,76,0.8);
+      margin-bottom: 16px; font-weight: 300;
+      opacity: 0; animation: fadeUp 0.8s 1.0s forwards;
+    }
+    .hero-desc {
+      font-size: 14px; font-weight: 300; line-height: 1.95;
+      color: rgba(255,255,255,0.5); max-width: 400px; margin-bottom: 48px;
+      opacity: 0; animation: fadeUp 0.8s 1.1s forwards;
+    }
+    .hero-actions {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.8s 1.3s forwards;
+    }
+
+    /* Kente-strip accent */
+    .kente-strip {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 8px;
+      display: flex; z-index: 5;
+    }
+    .ks { flex: 1; }
+
+    /* Hero right — image */
+    .hero-right {
+      position: relative; overflow: hidden; min-height: 100vh;
+    }
+    .hero-right img {
+      height: 100%; object-fit: cover; object-position: center top;
+      filter: contrast(1.05) brightness(0.88);
+    }
+    .hero-right-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.55) 0%, transparent 60%);
+    }
+
+    /* Floating symbol badge on hero image */
+    .hero-badge {
+      position: absolute; bottom: 80px; left: -28px; z-index: 3;
+      background: var(--black); border: 1px solid rgba(201,168,76,0.3);
+      padding: 22px 28px; width: 160px;
+      text-align: center;
+    }
+    .hero-badge img { width: 40px; height: 40px; object-fit: contain; margin: 0 auto 10px; filter: invert(1) sepia(1) saturate(2) hue-rotate(10deg); }
+    .hero-badge-text {
+      font-family: var(--font-d); font-size: 8px; letter-spacing: 0.2em;
+      color: var(--gold); text-transform: uppercase; line-height: 1.6;
+    }
+
+    /* ─── MARQUEE ─── */
+    .marquee-band {
+      background: var(--gold); padding: 14px 0; overflow: hidden;
+      border-top: 1px solid var(--gold-dark);
+    }
+    .marquee-inner {
+      display: flex; gap: 0; white-space: nowrap;
+      animation: marquee 28s linear infinite;
+    }
+    .marquee-item {
+      font-family: var(--font-d); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--black); padding: 0 40px;
+      display: flex; align-items: center; gap: 20px;
+    }
+    .marquee-dot { width: 4px; height: 4px; background: var(--black); border-radius: 50%; opacity: 0.4; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ─── ADINKRA SYMBOLS SECTION ─── */
+    .symbols-section {
+      padding: 120px 0;
+      background: var(--white);
+      position: relative;
+    }
+    .symbols-section::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    .symbols-grid-layout {
+      display: grid; grid-template-columns: 1fr 1.4fr; gap: 100px; align-items: center;
+      margin-top: 70px;
+    }
+    .symbols-text p {
+      font-size: 15px; font-weight: 300; color: var(--text-mid);
+      line-height: 2.0; margin-bottom: 22px;
+    }
+    .symbols-text p em {
+      font-family: var(--font-i); font-style: italic;
+      color: var(--gold-dark); font-size: 17px;
+    }
+
+    /* Stamp photo + symbol cards */
+    .symbols-visual { position: relative; }
+    .stamp-photo {
+      width: 100%; height: 360px; object-fit: cover;
+      border: 1px solid var(--border);
+      filter: sepia(20%) contrast(1.05);
+    }
+    .symbols-cards {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+      margin-top: 14px;
+    }
+    .sym-card {
+      background: var(--cream); border: 1px solid var(--border);
+      padding: 22px 18px; display: flex; gap: 16px; align-items: flex-start;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      cursor: default;
+    }
+    .sym-card:hover {
+      border-color: var(--gold); box-shadow: 0 4px 20px rgba(201,168,76,0.1);
+    }
+    .sym-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: var(--white); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; padding: 6px;
+    }
+    .sym-icon img { width: 100%; height: 100%; object-fit: contain; }
+    .sym-card h4 {
+      font-family: var(--font-d); font-size: 10px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--black); margin-bottom: 5px;
+    }
+    .sym-card p { font-size: 12px; color: var(--text-soft); line-height: 1.65; }
+
+    /* ─── SANKOFA SECTION ─── */
+    .sankofa-section {
+      padding: 120px 0;
+      background: var(--black);
+      position: relative; overflow: hidden;
+    }
+    .sankofa-bg {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.04) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(201,168,76,0.03) 0%, transparent 50%);
+    }
+    /* Faint Dwennimmen watermark */
+    .sankofa-watermark {
+      position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
+      width: 500px; height: 500px; opacity: 0.025;
+    }
+
+    .sankofa-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;
+    }
+    .sankofa-text .section-label { color: var(--gold-light); }
+    .sankofa-text p {
+      font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.55);
+      line-height: 2.0; margin-bottom: 22px;
+    }
+
+    .sankofa-pillars { display: flex; flex-direction: column; gap: 0; }
+    .s-pillar {
+      padding: 32px 36px; border: 1px solid rgba(201,168,76,0.1);
+      border-bottom: none; transition: background 0.3s;
+      display: flex; gap: 28px; align-items: flex-start;
+    }
+    .s-pillar:last-child { border-bottom: 1px solid rgba(201,168,76,0.1); }
+    .s-pillar:hover { background: rgba(201,168,76,0.03); }
+    .s-num {
+      font-family: var(--font-d); font-size: 38px; font-weight: 700;
+      color: rgba(201,168,76,0.1); line-height: 1; min-width: 28px;
+    }
+    .s-pillar h3 {
+      font-family: var(--font-d); font-size: 13px; letter-spacing: 0.14em;
+      color: var(--gold-light); text-transform: uppercase; margin-bottom: 10px;
+    }
+    .s-pillar p { font-size: 13.5px; color: rgba(255,255,255,0.45); line-height: 1.85; font-weight: 300; }
+
+    .sankofa-quote {
+      margin-top: 80px; padding-top: 60px;
+      border-top: 1px solid rgba(201,168,76,0.12);
+      text-align: center; position: relative; z-index: 2;
+    }
+    .sankofa-quote blockquote {
+      font-family: var(--font-i); font-style: italic;
+      font-size: clamp(18px, 2.5vw, 30px); color: var(--gold-light);
+      line-height: 1.5; margin-bottom: 18px;
+    }
+    .sankofa-quote cite {
+      font-size: 11px; letter-spacing: 0.22em; color: rgba(255,255,255,0.3);
+      font-style: normal; text-transform: uppercase;
+    }
+
+    /* ─── COLLECTION ─── */
+    .collection-section {
+      padding: 120px 0;
+      background: var(--cream);
+    }
+    .collection-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 64px; }
+
+    .products-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    }
+
+    .product-card {
+      background: var(--white); border: 1px solid var(--border);
+      transition: transform 0.4s, box-shadow 0.4s;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.09);
+    }
+    .product-card.featured { grid-row: span 1; }
+
+    .prod-img {
+      position: relative; height: 360px; overflow: hidden; background: #E8E2DA;
+    }
+    .prod-img img {
+      height: 100%; object-fit: cover; object-position: top center;
+      transition: transform 0.7s ease;
+    }
+    .product-card:hover .prod-img img { transform: scale(1.06); }
+
+    .prod-badge {
+      position: absolute; top: 14px; left: 14px; z-index: 2;
+      background: var(--black); color: var(--gold);
+      font-size: 8px; font-weight: 600; letter-spacing: 0.25em;
+      padding: 5px 12px; text-transform: uppercase;
+    }
+    .prod-badge.gold-badge { background: var(--gold); color: var(--black); }
+
+    .prod-overlay {
+      position: absolute; inset: 0; background: rgba(0,0,0,0.0);
+      display: flex; align-items: flex-end;
+      transition: background 0.35s;
+    }
+    .product-card:hover .prod-overlay { background: rgba(0,0,0,0.25); }
+    .prod-actions {
+      width: 100%; display: flex;
+      transform: translateY(100%); transition: transform 0.35s ease;
+    }
+    .product-card:hover .prod-actions { transform: translateY(0); }
+    .btn-cart {
+      flex: 1; background: var(--black); color: var(--gold-light);
+      border: none; padding: 15px; font-family: var(--font-b);
+      font-size: 9.5px; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; cursor: pointer; transition: background 0.25s;
+    }
+    .btn-cart:hover { background: var(--gold); color: var(--black); }
+    .btn-wish {
+      width: 50px; background: rgba(255,255,255,0.95); border: none;
+      font-size: 18px; cursor: pointer; border-left: 1px solid var(--border);
+      transition: all 0.25s; color: var(--text-soft);
+    }
+    .btn-wish:hover { background: var(--gold); color: var(--black); }
+
+    /* Adinkra symbol tag */
+    .prod-sym {
+      position: absolute; top: 14px; right: 14px; z-index: 3;
+      width: 32px; height: 32px; background: rgba(0,0,0,0.75);
+      border: 1px solid rgba(201,168,76,0.3); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; padding: 6px;
+    }
+    .prod-sym img { width: 100%; height: 100%; object-fit: contain; filter: invert(1) sepia(1) saturate(2); }
+
+    .prod-info { padding: 20px 20px 18px; }
+    .prod-info h3 {
+      font-family: var(--font-d); font-size: 12px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--black); margin-bottom: 8px;
+    }
+    .prod-info p {
+      font-size: 12.5px; color: var(--text-soft); line-height: 1.7; margin-bottom: 14px; font-weight: 300;
+    }
+    .prod-foot {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 12px; border-top: 1px solid var(--border);
+    }
+    .prod-price {
+      font-family: var(--font-d); font-size: 15px; font-weight: 600; color: var(--black);
+    }
+    .prod-price small { font-size: 10.5px; color: var(--text-soft); font-weight: 300; margin-left: 4px; }
+    .prod-colors { display: flex; gap: 6px; }
+    .prod-colors span { width: 13px; height: 13px; border-radius: 50%; display: block; }
+
+    /* Cart toast */
+    .toast {
+      position: fixed; bottom: 30px; right: 30px; z-index: 9999;
+      background: var(--black); color: var(--gold-light);
+      padding: 15px 24px; font-family: var(--font-b); font-size: 12.5px;
+      letter-spacing: 0.05em; border-left: 3px solid var(--gold);
+      transform: translateY(80px); opacity: 0; transition: all 0.4s ease;
+      display: flex; gap: 12px; align-items: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ─── CRAFTSMANSHIP ─── */
+    .craft-section { padding: 120px 0; background: var(--white); }
+    .craft-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 100px; align-items: center; }
+    .craft-images { position: relative; padding-bottom: 60px; padding-right: 60px; }
+    .craft-main {
+      height: 520px; overflow: hidden; border: 1px solid var(--border);
+    }
+    .craft-main img { height: 100%; object-fit: cover; filter: sepia(15%) contrast(1.05); }
+    .craft-accent {
+      position: absolute; bottom: 0; right: 0;
+      width: 220px; height: 200px;
+      border: 3px solid var(--white);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15); overflow: hidden;
+    }
+    .craft-accent img { height: 100%; object-fit: cover; }
+    .craft-accent-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(0,0,0,0.85); padding: 10px 14px; text-align: center;
+    }
+    .craft-accent-label span {
+      display: block; font-family: var(--font-d); font-size: 20px;
+      color: var(--gold); font-weight: 600; line-height: 1.1;
+    }
+    .craft-accent-label small {
+      font-size: 8.5px; color: rgba(255,255,255,0.5); letter-spacing: 0.2em; text-transform: uppercase;
+    }
+
+    .craft-text p { font-size: 15px; font-weight: 300; color: var(--text-mid); line-height: 2.0; margin-bottom: 22px; }
+    .craft-stats {
+      display: flex; gap: 0; margin-top: 44px; padding-top: 44px;
+      border-top: 1px solid var(--border);
+    }
+    .c-s {
+      flex: 1; padding-right: 24px; margin-right: 24px;
+      border-right: 1px solid var(--border);
+    }
+    .c-s:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+    .c-s .num {
+      display: block; font-family: var(--font-d); font-size: 36px;
+      color: var(--gold); font-weight: 600; line-height: 1; margin-bottom: 6px;
+    }
+    .c-s p { font-size: 10.5px; color: var(--text-soft); letter-spacing: 0.14em; text-transform: uppercase; margin: 0; }
+
+    /* ─── FASHION GALLERY ─── */
+    .gallery-section { padding: 0; background: var(--black); }
+    .gallery-header { padding: 80px 0 60px; text-align: center; }
+    .gallery-grid { display: grid; grid-template-columns: 1fr 1.5fr 1fr; height: 500px; }
+    .g-item { position: relative; overflow: hidden; cursor: pointer; }
+    .g-item img { height: 100%; object-fit: cover; transition: transform 0.7s ease, filter 0.5s; filter: brightness(0.8) grayscale(10%); }
+    .g-item:hover img { transform: scale(1.08); filter: brightness(1.0) grayscale(0%); }
+    .g-item-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+      opacity: 0; transition: opacity 0.4s;
+      display: flex; align-items: flex-end; padding: 24px;
+    }
+    .g-item:hover .g-item-overlay { opacity: 1; }
+    .g-item-label {
+      font-family: var(--font-d); font-size: 10px; letter-spacing: 0.25em;
+      color: var(--gold-light); text-transform: uppercase;
+    }
+
+    /* ─── STORY ─── */
+    .story-section { padding: 120px 0; background: var(--black); position: relative; overflow: hidden; }
+    .story-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: url('/mnt/user-data/uploads/AJ-.jpg') center/cover no-repeat;
+      opacity: 0.07;
+    }
+    .story-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start;
+    }
+    .story-text p { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 2.0; margin-bottom: 22px; }
+    .story-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
+    .s-badge {
+      border: 1px solid rgba(201,168,76,0.25); color: rgba(201,168,76,0.8);
+      padding: 9px 20px; font-size: 10px; font-weight: 500; letter-spacing: 0.18em;
+      text-transform: uppercase; transition: all 0.3s;
+    }
+    .s-badge:hover { background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.5); }
+
+    .story-timeline { padding-left: 36px; position: relative; }
+    .story-timeline::before {
+      content: ''; position: absolute; left: 0; top: 8px; bottom: 0;
+      width: 1px; background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+    .tl-item { position: relative; margin-bottom: 42px; }
+    .tl-item::before {
+      content: ''; position: absolute; left: -40px; top: 4px;
+      width: 8px; height: 8px; border-radius: 50%; background: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+    }
+    .tl-year {
+      font-family: var(--font-d); font-size: 10px; font-weight: 600;
+      color: var(--gold); letter-spacing: 0.12em; margin-bottom: 7px;
+    }
+    .tl-item h4 {
+      font-family: var(--font-d); font-size: 12.5px; letter-spacing: 0.1em;
+      color: var(--white); margin-bottom: 8px; text-transform: uppercase;
+    }
+    .tl-item p { font-size: 13.5px; color: rgba(255,255,255,0.45); line-height: 1.75; font-weight: 300; }
+
+    /* ─── TIKTOK ─── */
+    .tiktok-section { padding: 120px 0; background: var(--cream); }
+    .tk-grid { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 20px; margin-top: 60px; }
+    .tk-card {
+      background: var(--white); border: 1px solid var(--border);
+      transition: transform 0.35s, box-shadow 0.35s;
+    }
+    .tk-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.09); }
+    .tk-thumb {
+      position: relative; height: 280px;
+      background: linear-gradient(135deg, #0A0800 0%, #1A1200 100%);
+      overflow: hidden; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    }
+    .tk-card.featured .tk-thumb { height: 340px; }
+    .tk-thumb-symbol {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      opacity: 0.06;
+    }
+    .tk-thumb-symbol img { width: 70%; height: 70%; object-fit: contain; filter: invert(1) sepia(1) saturate(2); }
+    .tk-play {
+      position: relative; z-index: 2;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: rgba(201,168,76,0.9); display: flex; align-items: center; justify-content: center;
+      font-size: 16px; padding-left: 4px; color: var(--black);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .tk-card:hover .tk-play { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(201,168,76,0.15); }
+    .tk-label {
+      position: absolute; bottom: 16px; left: 0; right: 0;
+      text-align: center; font-family: var(--font-d); font-size: 10px;
+      letter-spacing: 0.16em; color: rgba(255,255,255,0.65); text-transform: uppercase; z-index: 2;
+    }
+    .tk-body { padding: 20px; }
+    .tk-body p { font-size: 13px; color: var(--text-mid); line-height: 1.75; font-weight: 300; margin-bottom: 12px; }
+    .tk-stats { display: flex; gap: 16px; font-size: 11.5px; color: var(--text-soft); }
+
+    .social-row { display: flex; gap: 12px; justify-content: center; margin-top: 56px; flex-wrap: wrap; }
+    .soc-btn {
+      border: 1px solid var(--border); padding: 11px 28px;
+      font-family: var(--font-b); font-size: 10px; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .soc-btn:hover { background: var(--black); color: var(--gold-light); border-color: var(--black); }
+
+    /* ─── GLOBAL VISION ─── */
+    .global-section { padding: 120px 0; background: var(--black); position: relative; overflow: hidden; }
+    .global-section::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url('/mnt/user-data/uploads/Hy1O_y9qtYJ.jpg') center/400px repeat;
+      opacity: 0.025; filter: invert(1);
+    }
+    .global-inner { position: relative; z-index: 2; text-align: center; }
+    .expansion-row { display: flex; align-items: flex-start; justify-content: center; margin-top: 72px; }
+    .exp-step {
+      flex: 1; max-width: 280px; padding: 44px 32px;
+      border: 1px solid rgba(201,168,76,0.1); text-align: center;
+      transition: all 0.3s;
+    }
+    .exp-step:hover, .exp-step.active {
+      border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.03);
+    }
+    .exp-step::before {
+      content: ''; display: block; width: 100%; height: 1px;
+      background: var(--gold); margin-bottom: 0; transform: scaleX(0);
+      transition: transform 0.4s; position: relative; top: -44px; left: 0;
+    }
+    .exp-step.active::before, .exp-step:hover::before { transform: scaleX(1); }
+    .exp-icon { font-size: 30px; margin-bottom: 16px; display: block; }
+    .exp-step h4 {
+      font-family: var(--font-d); font-size: 13px; color: var(--gold-light);
+      letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px;
+    }
+    .exp-step p { font-size: 13px; color: rgba(255,255,255,0.42); line-height: 1.8; font-weight: 300; }
+    .exp-arrow { align-self: center; color: rgba(201,168,76,0.25); font-size: 24px; padding: 0 10px; }
+
+    /* ─── CONTACT ─── */
+    .contact-section { padding: 120px 0; background: var(--white); }
+    .contact-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 100px; margin-top: 64px; }
+    .contact-info-block { }
+    .c-item { display: flex; gap: 20px; margin-bottom: 36px; }
+    .c-icon { font-size: 20px; line-height: 1; flex-shrink: 0; padding-top: 2px; }
+    .c-item h4 {
+      font-family: var(--font-d); font-size: 10px; letter-spacing: 0.22em;
+      color: var(--gold-dark); text-transform: uppercase; margin-bottom: 7px;
+    }
+    .c-item p { font-size: 14px; color: var(--text-mid); line-height: 1.8; }
+    .c-item a { color: var(--gold-dark); transition: color 0.3s; }
+    .c-item a:hover { color: var(--gold); }
+
+    .contact-form h3 {
+      font-family: var(--font-d); font-size: 16px; letter-spacing: 0.12em;
+      text-transform: uppercase; margin-bottom: 28px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block; font-size: 9.5px; font-weight: 600;
+      letter-spacing: 0.26em; text-transform: uppercase; margin-bottom: 10px; color: var(--text);
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; border: 1px solid var(--border); border-bottom: 2px solid var(--border);
+      padding: 13px 15px; font-family: var(--font-b); font-size: 14px;
+      color: var(--text); background: var(--cream); outline: none;
+      transition: border-color 0.3s; resize: vertical; appearance: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-bottom-color: var(--gold); background: var(--white);
+    }
+
+    /* ─── NEWSLETTER ─── */
+    .newsletter { background: var(--gold); padding: 72px 0; }
+    .nl-inner {
+      display: flex; align-items: center; justify-content: space-between; gap: 40px;
+    }
+    .nl-text h3 {
+      font-family: var(--font-d); font-size: 28px; font-weight: 600;
+      color: var(--black); margin-bottom: 8px;
+    }
+    .nl-text p { font-size: 14px; color: rgba(0,0,0,0.55); font-weight: 300; }
+    .nl-form { display: flex; }
+    .nl-form input {
+      width: 300px; border: 1.5px solid rgba(0,0,0,0.15); border-right: none;
+      background: rgba(255,255,255,0.4); padding: 15px 20px;
+      font-family: var(--font-b); font-size: 14px; outline: none;
+      transition: background 0.3s;
+    }
+    .nl-form input::placeholder { color: rgba(0,0,0,0.4); }
+    .nl-form input:focus { background: rgba(255,255,255,0.7); }
+    .nl-form .btn { background: var(--black); color: var(--gold-light); border-color: var(--black); }
+    .nl-form .btn:hover { background: var(--off-black); }
+
+    /* ─── FOOTER ─── */
+    .footer { background: #060400; padding: 90px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 2fr; gap: 100px; padding-bottom: 70px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .footer-brand .nav-logo { margin-bottom: 25px; }
+    .footer-brand p { font-size: 13.5px; color: rgba(255,255,255,0.35); line-height: 1.85; max-width: 260px; margin-bottom: 8px; }
+    .footer-flag { font-size: 12px; color: rgba(201,168,76,0.45); margin-top: 4px; }
+
+    /* Adinkra symbol row footer */
+    .footer-syms { display: flex; gap: 14px; margin-top: 22px; align-items: center; opacity: 0.3; }
+    .footer-syms img { width: 20px; height: 20px; object-fit: contain; filter: invert(1) sepia(1) saturate(1.5); }
+
+    .footer-links-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    .fl-col h5 {
+      font-family: var(--font-d); font-size: 9.5px; letter-spacing: 0.3em;
+      color: var(--gold); text-transform: uppercase;
+      margin-bottom: 20px; padding-bottom: 12px;
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+    }
+    .fl-col a {
+      display: block; font-size: 13px; color: rgba(255,255,255,0.32);
+      margin-bottom: 12px; letter-spacing: 0.04em; transition: color 0.3s, padding-left 0.3s;
+    }
+    .fl-col a:hover { color: var(--gold-light); padding-left: 5px; }
+
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 0; font-size: 15px; color: rgba(255,255,255,0.18); letter-spacing: 0.06em;
+    }
+    .footer-social { display: flex; gap: 20px; }
+    .footer-social a { color: rgba(255,255,255,0.2); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; transition: color 0.3s; }
+    .footer-social a:hover { color: var(--gold-light); }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1080px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { position: absolute; inset: 0; opacity: 0.2; }
+      .hero-left { max-width: 640px; position: relative; z-index: 2; padding: 140px 48px 100px; }
+      .products-grid { grid-template-columns: 1fr 1fr; }
+      .symbols-grid-layout { grid-template-columns: 1fr; gap: 60px; }
+      .sankofa-inner { grid-template-columns: 1fr; gap: 60px; }
+      .craft-layout { grid-template-columns: 1fr; gap: 60px; }
+      .story-inner { grid-template-columns: 1fr; gap: 60px; }
+      .tk-grid { grid-template-columns: 1fr; }
+      .contact-layout { grid-template-columns: 1fr; gap: 60px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 56px; }
+    }
+    @media (max-width: 768px) {
+      .container { padding: 0 24px; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(0,0,0,0.97); padding: 28px 32px; gap: 20px; border-bottom: 2px solid var(--gold); }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: flex; }
+      .products-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; height: auto; }
+      .gallery-grid .g-item { height: 240px; }
+      .gallery-grid .g-item:last-child { display: none; }
+      .nl-inner { flex-direction: column; text-align: center; }
+      .nl-form { flex-direction: column; width: 100%; max-width: 380px; }
+      .nl-form input { width: 100%; border-right: 1.5px solid rgba(0,0,0,0.15); border-bottom: none; }
+      .expansion-row { flex-direction: column; align-items: center; gap: 16px; }
+      .exp-arrow { transform: rotate(90deg); }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-links-grid { grid-template-columns: 1fr 1fr; }
+      .craft-accent { display: none; }
+      .craft-images { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="./logo.jpeg" alt="Adinkra Fashion House Logo" />
+      <!--<span class="nav-logo-text">
+        ADINKRA
+        <span class="nav-logo-sub">FASHION HOUSE</span>
+      </span>-->
+    </a>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#symbols">Adinkra</a></li>
+      <li><a href="#sankofa">Sankofa</a></li>
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#craft">Craft</a></li>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#collection" class="nav-cta">Shop Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-symbols-bg"></div>
+  <div class="hero-left">
+    <span class="hero-eyebrow">Ghana · West Africa · Est. 2024</span>
+    <h1 class="hero-title">Where Heritage</h1>
+    <span class="hero-title-italic">Becomes Couture</span>
+    <div class="hero-rule"></div>
+    <p class="hero-slogan">"Elevate Your Style. Embrace Your Heritage."</p>
+    <p class="hero-desc">Adinkra symbols reimagined as luxury fashion — where every stitch carries a story older than time, dressed for the world of tomorrow.</p>
+    <div class="hero-actions">
+      <a href="#collection" class="btn btn-gold">Explore Collection</a>
+      <a href="#story" class="btn btn-outline">Our Story</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="./pexels-greta-hoffman-9705913.jpg" alt="Ghanaian fashion — modern couture" />
+    <div class="hero-right-overlay"></div>
+    <div class="hero-badge">
+      <img src="./gye-nyame-small.png" alt="Gye Nyame" />
+      <div class="hero-badge-text">Gye Nyame<br/>Except God</div>
+    </div>
+  </div>
+  <div class="kente-strip">
+    <div class="ks" style="background:#C9A84C"></div>
+    <div class="ks" style="background:#000"></div>
+    <div class="ks" style="background:#8B0000"></div>
+    <div class="ks" style="background:#C9A84C"></div>
+    <div class="ks" style="background:#006400"></div>
+    <div class="ks" style="background:#C9A84C"></div>
+    <div class="ks" style="background:#000"></div>
+    <div class="ks" style="background:#8B0000"></div>
+    <div class="ks" style="background:#C9A84C"></div>
+    <div class="ks" style="background:#006400"></div>
+    <div class="ks" style="background:#C9A84C"></div>
+    <div class="ks" style="background:#000"></div>
+    <div class="ks" style="background:#8B0000"></div>
+    <div class="ks" style="background:#C9A84C"></div>
+    <div class="ks" style="background:#006400"></div>
+    <div class="ks" style="background:#C9A84C"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-band">
+  <div class="marquee-inner" id="marqueeInner">
+    <span class="marquee-item">Adinkra Heritage <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Sankofa Philosophy <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Akan Tradition <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Kente Weaving <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Made in Accra <span class="marquee-dot"></span></span>
+    <span class="marquee-item">African Luxury <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Gye Nyame <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Ghana to the World <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Adinkra Heritage <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Sankofa Philosophy <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Akan Tradition <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Kente Weaving <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Made in Accra <span class="marquee-dot"></span></span>
+    <span class="marquee-item">African Luxury <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Gye Nyame <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Ghana to the World <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- ADINKRA SYMBOLS SECTION -->
+<section class="symbols-section" id="symbols">
+  <div class="container">
+    <span class="section-label reveal">— Cultural Heritage —</span>
+    <div class="symbols-grid-layout">
+      <div class="symbols-text reveal">
+        <h2 class="section-title">The Language<br/>of <em>Adinkra</em></h2>
+        <div class="divider-line"></div>
+        <p>Long before language could cross oceans, the Akan people of Ghana spoke in symbols. Adinkra — meaning "farewell message" — is a visual language of profound depth, originally stamped onto cloth as messages to the living and the departed.</p>
+        <p>Each symbol encodes a philosophy, a proverb, a way of life. Worn at royal ceremonies, funerals, and festivals — Adinkra cloth was never merely clothing. It was <em>communication</em>. It was identity. It was power.</p>
+        <p>At Adinkra Fashion House, we translate these ancient symbols into modern luxury — so that wherever you go in the world, you carry your cutural message with you.</p>
+        <a href="#collection" class="btn btn-outline-dark" style="margin-top:32px;">Wear the Message</a>
+      </div>
+      <div class="symbols-visual reveal">
+        <img class="stamp-photo" src="./pexels-builtbyking-11403816.jpg" alt="Authentic Adinkra stamps — carved in Ghana" />
+        <div class="symbols-cards">
+          <div class="sym-card">
+            <div class="sym-icon">
+              <img src="./gye-nyame-small.png" alt="Gye Nyame" />
+            </div>
+            <div>
+              <h4>Gye Nyame</h4>
+              <p>"Except God" — Supreme divine power over all creation.</p>
+            </div>
+          </div>
+          <div class="sym-card">
+            <div class="sym-icon">
+              <img src="./dwennimmen-small.png" alt="Dwennimmen" />
+            </div>
+            <div>
+              <h4>Dwennimmen</h4>
+              <p>"Ram's horns" — Strength with humility.</p>
+            </div>
+          </div>
+          <div class="sym-card">
+            <div class="sym-icon">
+              <img src="./adinkrahene-small.png" alt="Adinkrahene" />
+            </div>
+            <div>
+              <h4>Adinkrahene</h4>
+              <p>"Chief of Adinkra" — Leadership and greatness.</p>
+            </div>
+          </div>
+          <div class="sym-card">
+            <div class="sym-icon">
+              <img src="./Adinkra-duafe-bold-400w.png" alt="Duafe" />
+            </div>
+            <div>
+              <h4>Duafe</h4>
+              <p>"Wooden comb" — Feminine beauty and cleanliness.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SANKOFA SECTION -->
+<section class="sankofa-section" id="sankofa">
+  <div class="sankofa-bg"></div>
+  <!-- Watermark SVG -->
+  <svg class="sankofa-watermark" viewBox="0 0 200 200" fill="none">
+    <path d="M100 100 C100 100 60 95 42 75 C24 55 30 32 52 34 C68 36 78 52 70 68 C62 84 44 84 36 74" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
+    <path d="M100 100 C100 100 140 95 158 75 C176 55 170 32 148 34 C132 36 122 52 130 68 C138 84 156 84 164 74" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
+    <path d="M100 100 C100 100 60 105 42 125 C24 145 30 168 52 166 C68 164 78 148 70 132 C62 116 44 116 36 126" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
+    <path d="M100 100 C100 100 140 105 158 125 C176 145 170 168 148 166 C132 164 122 148 130 132 C138 116 156 116 164 126" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
+    <circle cx="100" cy="100" r="8" fill="#C9A84C"/>
+  </svg>
+
+  <div class="container">
+    <div style="text-align:center; margin-bottom:72px;">
+      <span class="section-label gold-label reveal" style="color:rgba(201,168,76,0.7);">— The Philosophy —</span>
+      <h2 class="section-title white centered reveal" style="text-align:center">The Sankofa<br/>Principle</h2>
+      <div class="divider-line center" style="background:rgba(201,168,76,0.4)"></div>
+    </div>
+    <div class="sankofa-inner">
+      <div class="sankofa-text reveal">
+        <p>The Sankofa bird flies forward while looking backward — carrying an egg in its mouth. It is the Akan symbol of wisdom: one cannot know where they are going without understanding where they have been.</p>
+        <p>This philosophy is the heartbeat of everything we create. Every garment we make is an act of cultural reclamation. Every symbol we embroider is a whisper to our culture: <em>we have not forgotten.</em></p>
+        <p>We are not nostalgic. We are strategic. We return to our roots not to stay, but to gather the power needed to conquer the future.</p>
+        <a href="#story" class="btn btn-gold" style="margin-top:30px;">Our Journey</a>
+      </div>
+      <div class="sankofa-pillars reveal">
+        <div class="s-pillar">
+          <div class="s-num">01</div>
+          <div>
+            <h3>Root</h3>
+            <p>Every design begins in Ghana — in its villages, its weavers, its centuries-old traditions of Adinkra stamping in Ntonso and Kente weaving in Bonwire.</p>
+          </div>
+        </div>
+        <div class="s-pillar">
+          <div class="s-num">02</div>
+          <div>
+            <h3>Reclaim</h3>
+            <p>We reclaim African aesthetics — designed by Ghanaians, for the world, with full cultural integrity. Every symbol is researched, honoured, and worn with meaning.</p>
+          </div>
+        </div>
+        <div class="s-pillar">
+          <div class="s-num">03</div>
+          <div>
+            <h3>Rise</h3>
+            <p>From Accra to London, New York to Tokyo — the Sankofa bird carries our message: Africa's future is built on the wisdom of its past.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sankofa-quote reveal">
+      <blockquote>"Se wo were fi na wosankofa a yenkyi"</blockquote>
+      <cite>— Akan Proverb: "It is not wrong to go back for what you forgot."</cite>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTION -->
+<section class="collection-section" id="collection">
+  <div class="container">
+    <div class="collection-header reveal">
+      <div>
+        <span class="section-label">— SS 2025 Collection —</span>
+        <h2 class="section-title">The Heritage<br/><em>Collection</em></h2>
+      </div>
+      <a href="#" class="btn btn-outline-dark">View All Pieces</a>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card reveal">
+        <div class="prod-img">
+          <span class="prod-badge">BESTSELLER</span>
+          <div class="prod-sym"><img src="./Adinkra-duafe-bold-400w.png" alt="Gye Nyame" /></div>
+          <img src="./adinkra_shirt (186).png" alt="Adinkra Heritage Shirt" />
+          <div class="prod-overlay">
+            <div class="prod-actions">
+              <button class="btn-cart" onclick="addToCart(this,'Adinkra Heritage Shirt','₵850')">Add to Cart</button>
+              <button class="btn-wish">♡</button>
+            </div>
+          </div>
+        </div>
+        <div class="prod-info">
+          <h3>Adinkra Heritage Shirt</h3>
+          <p>Hand-stamped Adinkra print on premium cotton. Carries the Gye Nyame — worn as a daily prayer.</p>
+          <div class="prod-foot">
+            <span class="prod-price">₵850 <small>/ $58</small></span>
+            <div class="prod-colors">
+              <span style="background:#000"></span>
+              <span style="background:#C9A84C"></span>
+              <span style="background:#fff;border:1px solid #ccc"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="prod-img">
+          <span class="prod-badge gold-badge">SIGNATURE</span>
+          <div class="prod-sym"><img src="./sankofa-small.png" alt="Adinkrahene" /></div>
+          <img src="./sakofa_dress.jpg" alt="Sankofa Signature Dress" />
+          <div class="prod-overlay">
+            <div class="prod-actions">
+              <button class="btn-cart" onclick="addToCart(this,'Sankofa Signature Dress','₵1,800')">Add to Cart</button>
+              <button class="btn-wish">♡</button>
+            </div>
+          </div>
+        </div>
+        <div class="prod-info">
+          <h3>Sankofa Signature Dress</h3>
+          <p>The crown jewel. Flowing fabric adorned with the Sankofa symbol — an icon of reclamation and grace.</p>
+          <div class="prod-foot">
+            <span class="prod-price">₵1,800 <small>/ $120</small></span>
+            <div class="prod-colors">
+              <span style="background:#000"></span>
+              <span style="background:#C9A84C"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="prod-img">
+          <span class="prod-badge">LIMITED</span>
+          <div class="prod-sym"><img src="./dwennimmen-small.png" alt="Dwennimmen" /></div>
+          <img src="./kente_jacket.jpg" alt="Royal Kente Jacket" />
+          <div class="prod-overlay">
+            <div class="prod-actions">
+              <button class="btn-cart" onclick="addToCart(this,'Royal Kente Jacket','₵2,400')">Add to Cart</button>
+              <button class="btn-wish">♡</button>
+            </div>
+          </div>
+        </div>
+        <div class="prod-info">
+          <h3>Royal Kente Jacket</h3>
+          <p>Woven Kente panels fused with modern tailoring. Asante geometry meets razor-sharp silhouette.</p>
+          <div class="prod-foot">
+            <span class="prod-price">₵2,400 <small>/ $160</small></span>
+            <div class="prod-colors">
+              <span style="background:#000"></span>
+              <span style="background:#C9A84C"></span>
+              <span style="background:#8B0000"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="prod-img">
+          <span class="prod-badge">NEW</span>
+          <div class="prod-sym"><img src="./Adinkra-duafe-bold-400w.png" alt="Duafe" /></div>
+          <img src="./wlQv.jpg" alt="Afro-Street Collection" />
+          <div class="prod-overlay">
+            <div class="prod-actions">
+              <button class="btn-cart" onclick="addToCart(this,'Afro-Street Set','₵1,200')">Add to Cart</button>
+              <button class="btn-wish">♡</button>
+            </div>
+          </div>
+        </div>
+        <div class="prod-info">
+          <h3>Afro-Street Collection</h3>
+          <p>Where Accra's energy meets global streetwear. Adinkra meets the urban runway — unapologetically African.</p>
+          <div class="prod-foot">
+            <span class="prod-price">₵1,200 <small>/ $80</small></span>
+            <div class="prod-colors">
+              <span style="background:#000"></span>
+              <span style="background:#C9A84C"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span>✓</span><span id="toastMsg">Added to cart</span>
+</div>
+
+<!-- FASHION GALLERY -->
+<section class="gallery-section">
+  <div class="gallery-header">
+    <span class="section-label" style="color:rgba(201,168,76,0.7)">— Editorial —</span>
+    <h2 class="section-title white" style="text-align:center">Worn with <em>Purpose</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="g-item">
+      <img src="./pexels-greta-hoffman-9705913.jpg" alt="Afro-Street editorial" />
+      <div class="g-item-overlay"><span class="g-item-label">Afro-Street</span></div>
+    </div>
+    <div class="g-item">
+      <img src="./pexels-louisette-behou-812610360-19240391.jpg" alt="Kente couture editorial" />
+      <div class="g-item-overlay"><span class="g-item-label">Kente Couture</span></div>
+    </div>
+    <div class="g-item">
+      <img src="./pexels-akoonie-16910027.jpg" alt="Adinkra stamps heritage" />
+      <div class="g-item-overlay"><span class="g-item-label">Heritage Craft</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CRAFTSMANSHIP -->
+<section class="craft-section" id="craft">
+  <div class="container">
+    <div class="craft-layout">
+      <div class="craft-images reveal">
+        <div class="craft-main">
+          <img src="./AJ-.jpg" alt="Adinkra stamps — traditional Ghanaian craft" />
+        </div>
+        <div class="craft-accent">
+          <img src="./Hy1O_y9qtYJ.jpg"" alt="Adinkra symbol cloth" />
+          <div class="craft-accent-label">
+            <span>40+</span>
+            <small>Traditional Symbols</small>
+          </div>
+        </div>
+      </div>
+      <div class="craft-text reveal">
+        <span class="section-label">— Craftsmanship —</span>
+        <h2 class="section-title">Made by<br/><em>Ghanaian Hands</em></h2>
+        <div class="divider-line"></div>
+        <p>Every garment begins the same way it has for centuries — with artisan hands in Accra's craft communities. We work with traditional Adinkra stampers, Kente weavers from Bonwire, and skilled tailors who have inherited their craft across generations.</p>
+        <p>We do not outsource to factories. We partner with families. We do not reproduce symbols — we honour them. Each piece takes 3–7 days of skilled labour to complete.</p>
+        <div class="craft-stats">
+          <div class="c-s">
+            <span class="num">100%</span>
+            <p>Handcrafted in Ghana</p>
+          </div>
+          <div class="c-s">
+            <span class="num">3–7</span>
+            <p>Days per garment</p>
+          </div>
+          <div class="c-s">
+            <span class="num">15+</span>
+            <p>Artisan families</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story-section" id="story">
+  <div class="container">
+    <div class="story-inner">
+      <div class="story-text reveal">
+        <span class="section-label" style="color:rgba(201,168,76,0.7)">— Our Story —</span>
+        <h2 class="section-title white">A Vision Born<br/><em>from Accra</em></h2>
+        <div class="divider-line" style="background:rgba(201,168,76,0.4)"></div>
+        <p>We are young Ghanaians who grew up watching our grandmothers stamp Adinkra into cloth, our uncles weave Kente on wooden looms — then walk into a world that told us our culture was "traditional" and therefore less modern.</p>
+        <p>We refused that story. Adinkra Fashion House was born from the belief that African heritage is not the past — it is the most sophisticated, deeply meaningful design language on earth. It belongs on the global fashion stage.</p>
+        <p>We design from Accra. We ship to the world..</p>
+        <div class="story-badges">
+          <div class="s-badge">🇬🇭 Made in Ghana</div>
+          <div class="s-badge">🌍 Shipped Globally</div>
+          <div class="s-badge">✊ Community First</div>
+        </div>
+      </div>
+      <div class="story-timeline reveal">
+        <div class="tl-item">
+          <div class="tl-year">2022</div>
+          <h4>The Idea</h4>
+          <p>Two design students in Accra sketch the first Sankofa dress in a sketchbook over jollof rice.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2023</div>
+          <h4>First Craft Partnership</h4>
+          <p>We partner with Adinkra stamping families in Ntonso and Kente weavers from Bonwire, Ashanti Region.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2024</div>
+          <h4>Launch & Recognition</h4>
+          <p>First 100 pieces sell out in 72 hours. Featured at Ghana Fashion Week digital showcase.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2025</div>
+          <h4>Going Global</h4>
+          <p>International shipping launched. Africa to the world — one symbol at a time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIKTOK SECTION -->
+ <!-- COLLECTION -->
+<section class="collection-section" id="collection">
+  <div class="container">
+    <div class="collection-header reveal">
+      <div>
+        <span class="section-label">— SS 2025 Collection —</span>
+        <h2 class="section-title">THE AHENFO<br/><em>Collection</em></h2>
+      </div>
+      <a href="#" class="btn btn-outline-dark">View All Pieces</a>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card reveal">
+        <div class="prod-img">
+          <span class="prod-badge">BESTSELLER</span>
+          <div class="prod-sym"><img src="./Adinkra-duafe-bold-400w.png" alt="Gye Nyame" /></div>
+          <img src="./-cultural-herit.jpg" alt="Adinkra Heritage Shirt" />
+          <div class="prod-overlay">
+            <div class="prod-actions">
+              <button class="btn-cart" onclick="addToCart(this,'Adinkra Heritage Shirt','₵850')">Add to Cart</button>
+              <button class="btn-wish">♡</button>
+            </div>
+          </div>
+        </div>
+        <div class="prod-info">
+          <h3>Nka Heritage Beadst</h3>
+          <p>A timeless expression of African identity. Hand-inspired bead arrangements reflect tradition, status, and personal storytelling — reimagined for the modern wearer.</p>
+          <div class="prod-foot">
+            <span class="prod-price">₵850 <small>/ $58</small></span>
+            <div class="prod-colors">
+              <span style="background:#000"></span>
+              <span style="background:#C9A84C"></span>
+              <span style="background:#fff;border:1px solid #ccc"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="prod-img">
+          <span class="prod-badge gold-badge">SIGNATURE</span>
+          <div class="prod-sym"><img src="./sankofa-small.png" alt="Adinkrahene" /></div>
+          <img src="./images.jpg" alt="Sankofa Signature Dress" />
+          <div class="prod-overlay">
+            <div class="prod-actions">
+              <button class="btn-cart" onclick="addToCart(this,'Sankofa Signature Dress','₵1,800')">Add to Cart</button>
+              <button class="btn-wish">♡</button>
+            </div>
+          </div>
+        </div>
+        <div class="prod-info">
+          <h3>Nka Kente Tote</h3>
+          <p>A bold fusion of tradition and utility. Designed with vibrant Kente patterns, this piece transforms a functional accessory into a statement of cultural pride and everyday luxury.</p>
+          <div class="prod-foot">
+            <span class="prod-price">₵1,800 <small>/ $120</small></span>
+            <div class="prod-colors">
+              <span style="background:#000"></span>
+              <span style="background:#C9A84C"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="prod-img">
+          <span class="prod-badge">LIMITED</span>
+          <div class="prod-sym"><img src="./dwennimmen-small.png" alt="Dwennimmen" /></div>
+          <img src="./images (4).jpg" alt="Royal Kente Jacket" />
+          <div class="prod-overlay">
+            <div class="prod-actions">
+              <button class="btn-cart" onclick="addToCart(this,'Royal Kente Jacket','₵2,400')">Add to Cart</button>
+              <button class="btn-wish">♡</button>
+            </div>
+          </div>
+        </div>
+        <div class="prod-info">
+          <h3>Nka Royal Adornments</h3>
+          <p>Inspired by African royalty, these pieces embody elegance and power. Gold-toned detailing reflects heritage, status, and timeless sophistication.</p>
+          <div class="prod-foot">
+            <span class="prod-price">₵2,400 <small>/ $160</small></span>
+            <div class="prod-colors">
+              <span style="background:#000"></span>
+              <span style="background:#C9A84C"></span>
+              <span style="background:#8B0000"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="prod-img">
+          <span class="prod-badge">NEW</span>
+          <div class="prod-sym"><img src="./Adinkra-duafe-bold-400w.png" alt="Duafe" /></div>
+          <img src="./UY1000_.jpg" alt="Afro-Street Collection" />
+          <div class="prod-overlay">
+            <div class="prod-actions">
+              <button class="btn-cart" onclick="addToCart(this,'Afro-Street Set','₵1,200')">Add to Cart</button>
+              <button class="btn-wish">♡</button>
+            </div>
+          </div>
+        </div>
+        <div class="prod-info">
+          <h3>Nka Urban Carry</h3>
+          <p>Where culture meets movement. This modern backpack blends African textile heritage with contemporary street functionality — designed for bold, expressive lifestyles.</p>
+          <div class="prod-foot">
+            <span class="prod-price">₵1,200 <small>/ $80</small></span>
+            <div class="prod-colors">
+              <span style="background:#000"></span>
+              <span style="background:#C9A84C"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!--<section class="tiktok-section">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-label reveal">— Fashion Storytelling —</span>
+      <h2 class="section-title centered reveal">We Tell Our Story<br/><em>Our Way</em></h2>
+      <p class="reveal" style="font-size:14px;color:var(--text-soft);max-width:480px;margin:0 auto;font-weight:300;line-height:1.9;">TikTok is our runway. Every video is a cultural lesson wrapped in luxury fashion.</p>
+    </div>
+    <div class="tk-grid">
+      <div class="tk-card reveal">
+        <div class="tk-thumb">
+          <div class="tk-thumb-symbol"><img src="/mnt/user-data/uploads/adinkrahene-small.png" alt="" /></div>
+          <div class="tk-play">▶</div>
+          <span class="tk-label">The Making of a Symbol</span>
+        </div>
+        <div class="tk-body">
+          <p>Watch our artisans hand-stamp Adinkra onto raw cloth — a 400-year-old process, alive today.</p>
+          <div class="tk-stats"><span>🎵 2.4M views</span><span>❤️ 180K</span></div>
+        </div>
+      </div>
+      <div class="tk-card featured reveal">
+        <div class="tk-thumb">
+          <div class="tk-thumb-symbol"><img src="/mnt/user-data/uploads/gye-nyame-small.png" alt="" /></div>
+          <div class="tk-play">▶</div>
+          <span class="tk-label">Sankofa Dress Reveal</span>
+        </div>
+        <div class="tk-body">
+          <p>The dress that started a movement — watch the story unfold from sketch to final Sankofa gown.</p>
+          <div class="tk-stats"><span>🎵 5.1M views</span><span>❤️ 412K</span></div>
+        </div>
+      </div>
+      <div class="tk-card reveal">
+        <div class="tk-thumb">
+          <div class="tk-thumb-symbol"><img src="/mnt/user-data/uploads/dwennimmen-small.png" alt="" /></div>
+          <div class="tk-play">▶</div>
+          <span class="tk-label">What Adinkra Means</span>
+        </div>
+        <div class="tk-body">
+          <p>A crash course in Adinkra philosophy — the most beautiful visual language you've never heard.</p>
+          <div class="tk-stats"><span>🎵 3.8M views</span><span>❤️ 290K</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="social-row reveal">
+      <a href="#" class="soc-btn">TikTok</a>
+      <a href="#" class="soc-btn">Instagram</a>
+      <a href="#" class="soc-btn">YouTube</a>
+      <a href="#" class="soc-btn">Pinterest</a>
+    </div>
+  </div>
+  
+</section>-->
+
+<!-- GLOBAL VISION -->
+<section class="global-section">
+  <div class="container">
+    <div class="global-inner">
+      <span class="section-label reveal" style="color:rgba(201,168,76,0.7)">— Global Vision —</span>
+      <h2 class="section-title white centered reveal">From Accra,<br/><em>To Everywhere</em></h2>
+      <div class="divider-line center" style="background:rgba(201,168,76,0.3)"></div>
+      <div class="expansion-row reveal">
+        <div class="exp-step active">
+          <span class="exp-icon">🇬🇭</span>
+          <h4>Ghana</h4>
+          <p>Our home. Our foundation. Where it all begins — Accra, Kumasi, Ntonso, Bonwire.</p>
+        </div>
+        <div class="exp-arrow">⟶</div>
+        <div class="exp-step">
+          <span class="exp-icon">🌍</span>
+          <h4>Africa</h4>
+          <p>Lagos, Nairobi, Johannesburg, Dakar. Pan-African luxury fashion united by design.</p>
+        </div>
+        <div class="exp-arrow">⟶</div>
+        <div class="exp-step">
+          <span class="exp-icon">🌐</span>
+          <h4>Global</h4>
+          <p>London, New York, Paris, Tokyo. Adinkra on the world's greatest fashion stages.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <span class="section-label reveal">— Connect With Us —</span>
+    <h2 class="section-title reveal">Join the<br/><em>Movement</em></h2>
+    <div class="contact-layout">
+      <div class="contact-info-block reveal">
+        <div class="c-item">
+          <span class="c-icon">📍</span>
+          <div>
+            <h4>Visit Us</h4>
+            <p>Adinkra Fashion House<br/>Osu, Accra, Ghana<br/>West Africa</p>
+          </div>
+        </div>
+        <div class="c-item">
+          <span class="c-icon">✉️</span>
+          <div>
+            <h4>Email</h4>
+            <p><a href="mailto:hello@adinkrafashion.com">hello@adinkrafashion.com</a></p>
+          </div>
+        </div>
+        <div class="c-item">
+          <span class="c-icon">📞</span>
+          <div>
+            <h4>Phone</h4>
+            <p>+233 (0) 24 855 4154</p>
+          </div>
+        </div>
+        <div class="c-item">
+          <span class="c-icon">🕐</span>
+          <div>
+            <h4>Hours</h4>
+            <p>Mon–Sat: 9AM – 6PM GMT<br/>Online: 24/7</p>
+          </div>
+        </div>
+        <!-- Adinkra symbol strip decorative -->
+        <div style="display:flex;gap:16px;margin-top:10px;opacity:0.3;align-items:center">
+          <img src="./gye-nyame-small.png" style="width:28px;height:28px;object-fit:contain" alt="" />
+          <img src="./dwennimmen-small.png" style="width:28px;height:28px;object-fit:contain" alt="" />
+          <img src=".//sankofa-small.png" style="width:28px;height:28px;object-fit:contain" alt="" />
+          <img src="./Adinkra-duafe-bold-400w.png" style="width:28px;height:28px;object-fit:contain" alt="" />
+        </div>
+      </div>
+      <form class="contact-form reveal" onsubmit="handleForm(event)">
+        <h3>Send a Message</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select>
+            <option>Order Inquiry</option>
+            <option>Wholesale / Stockist</option>
+            <option>Media / Press</option>
+            <option>Collaboration</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="5" placeholder="Tell us about yourself..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold" style="width:100%;text-align:center">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="container">
+    <div class="nl-inner reveal">
+      <div class="nl-text">
+        <h3>Enter the Circle</h3>
+        <p>Exclusive drops, cultural stories, and first access to new collections.</p>
+      </div>
+      <form class="nl-form" onsubmit="handleNewsletter(event)">
+        <input type="email" placeholder="Your email address" />
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <img src="./logo.jpeg" alt="Logo" style="width:200px;height:44px;object-fit:contain" />
+          <!--<span class="nav-logo-text">ADINKRA<span class="nav-logo-sub">FASHION HOUSE</span></span>-->
+        </a>
+        <p>Elevate Your Style. Embrace Your Heritage.</p>
+        <p class="footer-flag">Made with pride in Accra, Ghana</p>
+        <div class="footer-syms">
+          <img src="./gye-nyame-small.png" alt="Gye Nyame" />
+          <img src="./dwennimmen-small.png" alt="Dwennimmen" />
+          <img src="./adinkrahene-small.png" alt="Adinkrahene" />
+          <img src="./Adinkra-duafe-bold-400w.png" alt="Duafe" />
+        </div>
+      </div>
+      <div class="footer-links-grid">
+        <div class="fl-col">
+          <h5>Shop</h5>
+          <a href="#">New Arrivals</a>
+          <a href="#">Heritage Collection</a>
+          <a href="#">Adinkra Shirts</a>
+          <a href="#">Kente Jackets</a>
+          <a href="#">Accessories</a>
+        </div>
+        <div class="fl-col">
+          <h5>Company</h5>
+          <a href="#">Our Story</a>
+          <a href="#">Craftsmanship</a>
+          <a href="#">Artisan Partners</a>
+          <a href="#">Press & Media</a>
+          <a href="#">Careers</a>
+        </div>
+        <div class="fl-col">
+          <h5>Support</h5>
+          <a href="#">Size Guide</a>
+          <a href="#">Shipping Info</a>
+          <a href="#">Returns</a>
+          <a href="#">FAQ</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+     <b> <p>© 2025 Adinkra Fashion House. All rights reserved. | Proudly Ghanaian.</p></b>
+      <div class="footer-social">
+        <a href="#">TikTok</a>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+
+  // Mobile toggle
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('open');
+    const s = toggle.querySelectorAll('span');
+    if (links.classList.contains('open')) {
+      s[0].style.transform = 'translateY(6px) rotate(45deg)';
+      s[1].style.opacity = '0';
+      s[2].style.transform = 'translateY(-6px) rotate(-45deg)';
+    } else {
+      s.forEach(x => { x.style.transform = ''; x.style.opacity = ''; });
+    }
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.querySelectorAll('span').forEach(x => { x.style.transform=''; x.style.opacity=''; });
+  }));
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const siblings = e.target.parentElement.querySelectorAll('.reveal');
+        let delay = 0;
+        siblings.forEach((s, i) => { if (s === e.target) delay = i * 120; });
+        setTimeout(() => e.target.classList.add('visible'), delay);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Cart
+  const toast = document.getElementById('toast');
+  const toastMsg = document.getElementById('toastMsg');
+  let tt;
+  function addToCart(btn, name, price) {
+    const orig = btn.textContent;
+    btn.textContent = '✓ Added'; btn.style.background = 'var(--gold)'; btn.style.color = '#000';
+    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.style.color = ''; }, 2000);
+    toastMsg.textContent = `${name} — ${price} added to cart`;
+    toast.classList.add('show'); clearTimeout(tt);
+    tt = setTimeout(() => toast.classList.remove('show'), 3500);
+  }
+  document.querySelectorAll('.btn-wish').forEach(b => b.addEventListener('click', () => {
+    const w = b.textContent === '♥';
+    b.textContent = w ? '♡' : '♥';
+    b.style.color = w ? '' : '#c0392b';
+  }));
+
+  // Forms
+  function handleForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    const orig = btn.textContent;
+    btn.textContent = "✓ Message Sent — We'll be in touch!";
+    btn.style.background = '#2a9d5c'; btn.style.borderColor = '#2a9d5c'; btn.style.color = '#fff';
+    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.style.borderColor = ''; btn.style.color = ''; e.target.reset(); }, 4000);
+  }
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button'), inp = e.target.querySelector('input');
+    if (!inp.value) return;
+    btn.textContent = '✓ Welcome!'; btn.style.background = '#2a9d5c';
+    setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; inp.value = ''; }, 3500);
+  }
+
+  // TikTok play
+  document.querySelectorAll('.tk-thumb').forEach(t => t.addEventListener('click', () => {
+    const p = t.querySelector('.tk-play');
+    p.textContent = '⏸'; setTimeout(() => p.textContent = '▶', 2000);
+  }));
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); window.scrollTo({ top: target.getBoundingClientRect().top + scrollY - nav.offsetHeight - 16, behavior: 'smooth' }); }
+  }));
+
+  // Page fade
+  window.addEventListener('load', () => {
+    document.body.style.opacity = '0'; document.body.style.transition = 'opacity 0.6s';
+    requestAnimationFrame(() => document.body.style.opacity = '1');
+  });
+</script>
+</body>
+</html>
